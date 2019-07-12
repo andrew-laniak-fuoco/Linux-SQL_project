@@ -22,7 +22,7 @@ into the PUBLIC.host_info table.
 Obtains resource information from the current machine and 
 inserts the values into the PUBLIC.host_usage table.
 
-**init.sql** Runs the DDl commands which defines the schema and generates the tables.
+**init.sql** Runs the DDL commands which defines the schema and generates the tables.
 
 ## USAGE
 ### Initalization
