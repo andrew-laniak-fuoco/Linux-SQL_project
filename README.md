@@ -9,7 +9,7 @@ specific machines and periodically record data on CPU and disk usage.
 **PUBLIC.host_info**
 Each record contains hardware information about a single machine
 
-PUBLIC.host_usage
+**PUBLIC.host_usage**
 Holds periodic information about resource usage.  Each 
 record holds a host id which is used as a foreign key to host_info.
 
@@ -42,6 +42,7 @@ The database with the schema and tables is now defined under the name [dbname]
 
 ### Script usage
 `./host_info.sh [hostname] [portnumber] [dbname] [username] [password]`
+
 `./host_usage.sh [hostname] [portnumber] [dbname] [username] [password]`
 
 ### Crontab setup
@@ -58,6 +59,9 @@ mind the log files will be held on the local machine and not the database.
 
 ## IMPROVEMENTS
 In the next version we are looking to improve in the following areas:
-1 More details on disk IO (get separate information on reads and writes)
-2 Adjust timestamps to fit to a universal time zone, and record time zones
-3 Measure available disk space in more areas than just the root directory
+
+**1** More details on disk IO (get separate information on reads and writes)
+
+**2** Adjust timestamps to fit to a universal time zone, and record time zones
+
+**3** Measure available disk space in more areas than just the root directory
