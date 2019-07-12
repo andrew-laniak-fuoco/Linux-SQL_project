@@ -4,8 +4,9 @@ a cluster's resource usage.  It will record hardware information of
 specific machines and periodically record data on CPU and disk usage.
 
 ## ARCHITECTURE AND DESIGN
+![](https://lh3.googleusercontent.com/_BW4ZtT8AIaXFeh8gN8IpZDdh8O54aj9eS-TNBjYb1msKInpLAtOO1F8aKeceeMbD9vN1wY0lg0 "Bash script architecture")
 ### Database Tables
-PUBLIC.host_info
+**PUBLIC.host_info**
 Each record contains hardware information about a single machine
 
 PUBLIC.host_usage
@@ -13,16 +14,15 @@ Holds periodic information about resource usage.  Each
 record holds a host id which is used as a foreign key to host_info.
 
 ### Scripts
-host_info.sh
+**host_info.sh**
 Obtains data from the current machine and inserts the values
 into the PUBLIC.host_info table.
 
-host_usage.sh
+**host_usage.sh**
 Obtains resource information from the current machine and 
 inserts the values into the PUBLIC.host_usage table.
 
-init.sql 
-Runs the DDl commands which defines the schema and generates the tables.
+**init.sql** Runs the DDl commands which defines the schema and generates the tables.
 
 ## USAGE
 ### Initalization
@@ -49,6 +49,7 @@ In order to have the host_usage.sh script operate as intended, the user needs
 to have the script run periodically (ideally once a minute).  One can do this
 through the use of Crontab.  Input the following command into the Crontab
 editor:
+
 `* * * * * bash [path to /host_usage.sh] [hostname] [portnumber] [dbname] [username] [password] > /tmp/host_usage.log`
 
 This command will run the script every minute and record the stdout to a log
